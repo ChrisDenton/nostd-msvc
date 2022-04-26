@@ -4,7 +4,10 @@
 
 #[no_mangle]
 extern fn main() -> i32 {
-    return 0;
+	unsafe {
+		libc::puts("Hello World!".as_ptr().cast());
+		return libc::rand();
+	}
 }
 
 #[panic_handler]
