@@ -8,7 +8,7 @@ use windows_sys::Win32::Storage::FileSystem::WriteFile;
 use windows_sys::Win32::Foundation::GetLastError;
 
 #[no_mangle]
-extern fn main() -> i32 {
+extern "C" fn main() -> i32 {
 	let stdout = unsafe { GetStdHandle(STD_OUTPUT_HANDLE) };
 	if stdout > 0 {
 		let msg = b"Hello World";
